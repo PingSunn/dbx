@@ -4275,7 +4275,7 @@ export default {
     createMongoIndexNameHint: "Leave blank to let MongoDB generate the name from the fields and types.",
     createMongoIndexSparse: "Sparse",
     createMongoIndexTtlInvalid: "Expire after must be a whole number of seconds.",
-    createMongoIndexFilterInvalid: 'Partial filter must be an object, for example { "status": "active" }.',
+    createMongoIndexFilterInvalid: "Partial filter must be an object, for example {'{'} \"status\": \"active\" {'}'}.",
     createMongoIndexBucketSizeInvalid: "Bucket size must be a whole number.",
     manageMongoIndexes: "Manage Indexes",
     manageMongoIndexesTitle: 'Indexes: "{collection}"',

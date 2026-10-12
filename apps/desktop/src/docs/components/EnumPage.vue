@@ -29,7 +29,7 @@ const usedBy = computed(() => columnsUsingEnum(props.snapshot, props.enumType.na
     <header class="flex flex-col gap-2">
       <div class="flex flex-wrap items-center gap-2">
         <h2 class="font-mono text-lg font-semibold text-foreground">{{ qualifiedName }}</h2>
-        <span v-if="enumType.synthesized" class="rounded bg-muted/50 px-1.5 py-0.5 text-[10px] uppercase text-muted-foreground">synthesized</span>
+        <span v-if="enumType.synthesized" class="rounded bg-muted/50 px-1.5 py-0.5 text-[10px] uppercase text-muted-foreground">{{ translate("docs.synthesized") }}</span>
       </div>
 
       <NoteEditor :model-value="enumType.note ?? ''" readonly :translate="translate" />
@@ -44,7 +44,7 @@ const usedBy = computed(() => columnsUsingEnum(props.snapshot, props.enumType.na
 
     <section>
       <h3 class="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{{ translate("docs.usedBy") }}</h3>
-      <p v-if="usedBy.length === 0" class="text-xs text-muted-foreground">No column uses this enum.</p>
+      <p v-if="usedBy.length === 0" class="text-xs text-muted-foreground">{{ translate("docs.noColumnUsesEnum") }}</p>
       <ul v-else class="flex flex-col gap-1">
         <li v-for="hit in usedBy" :key="`${hit.tableKey}.${hit.column}`" class="text-xs">
           <button type="button" class="w-full rounded border border-border bg-background px-2 py-1.5 text-left font-mono transition-colors hover:bg-muted/40" @click="emit('select', hit.tableKey)">{{ hit.tableKey }}.{{ hit.column }}</button>

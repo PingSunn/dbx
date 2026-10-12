@@ -19,6 +19,8 @@ export default {
   deleteGroup: "Elimina gruppo",
   enumValues: "Valori",
   usedBy: "Usato da",
+  synthesized: "synthesized",
+  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "Apri diagramma dello schema",
   saving: "Salvataggio…",
   saved: "Salvato",

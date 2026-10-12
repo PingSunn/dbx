@@ -19,6 +19,8 @@ export default {
   deleteGroup: "Hapus grup",
   enumValues: "Nilai",
   usedBy: "Digunakan oleh",
+  synthesized: "synthesized",
+  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "Buka diagram skema",
   saving: "Menyimpan…",
   saved: "Tersimpan",

@@ -19,6 +19,8 @@ export default {
   deleteGroup: "グループを削除",
   enumValues: "値",
   usedBy: "使用元",
+  synthesized: "synthesized",
+  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "スキーマ図を開く",
   saving: "保存中…",
   saved: "保存済み",

@@ -4119,7 +4119,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "Оставьте пустым, чтобы MongoDB сгенерировала имя из полей и типов.",
     createMongoIndexSparse: "Разреженный",
     createMongoIndexTtlInvalid: "Время устаревания должно быть целым числом секунд.",
-    createMongoIndexFilterInvalid: 'Частичный фильтр должен быть объектом, например { "status": "active" }.',
+    createMongoIndexFilterInvalid: "Частичный фильтр должен быть объектом, например {'{'} \"status\": \"active\" {'}'}.",
     createMongoIndexBucketSizeInvalid: "Размер bucket должен быть целым числом.",
     manageMongoIndexes: "Управление индексами",
     manageMongoIndexesTitle: "Индексы: «{collection}»",

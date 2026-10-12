@@ -19,6 +19,8 @@ export default {
   deleteGroup: "Удалить группу",
   enumValues: "Значения",
   usedBy: "Используется в",
+  synthesized: "synthesized",
+  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "Открыть схему",
   saving: "Сохранение…",
   saved: "Сохранено",

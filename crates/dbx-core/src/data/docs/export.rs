@@ -11,7 +11,7 @@ use crate::docs::snapshot::SchemaSnapshot;
 const EXPORT_JS: &str = include_str!("../../../assets/docs-export.js");
 const EXPORT_CSS: &str = include_str!("../../../assets/docs-export.css");
 
-pub const EXPORT_LANGUAGES: [&str; 8] = ["en", "es", "it", "ja", "ko", "pt-BR", "zh-CN", "zh-TW"];
+pub const EXPORT_LANGUAGES: [&str; 9] = ["en", "es", "it", "ja", "ko", "pt-BR", "th", "zh-CN", "zh-TW"];
 
 /// Render a snapshot as one self-contained HTML file.
 ///
@@ -101,6 +101,20 @@ mod tests {
         let value: serde_json::Value = serde_json::from_slice(&decoded).expect("valid json");
         assert_eq!(value["snapshot"]["project"]["name"], "shop");
         assert_eq!(value["lang"], "en");
+    }
+
+    #[test]
+    fn thai_export_is_allowed_and_preserves_language() {
+        let (snapshot, annotations) = fixture();
+        let html = to_standalone_html(&snapshot, &annotations, "th").expect("Thai export");
+        assert!(html.contains("<html lang=\"th\">"));
+        let start = html.find("application/dbx-snapshot").expect("payload element");
+        let body = &html[start..];
+        let encoded = body[body.find('>').unwrap() + 1..body.find("</script>").unwrap()].trim();
+        let decoded =
+            base64::Engine::decode(&base64::engine::general_purpose::STANDARD, encoded).expect("valid base64");
+        let value: serde_json::Value = serde_json::from_slice(&decoded).expect("valid json");
+        assert_eq!(value["lang"], "th");
     }
 
     #[test]

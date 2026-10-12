@@ -1,0 +1,126 @@
+// @vitest-environment happy-dom
+
+import { createI18n } from "vue-i18n";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import i18n, { detectLocaleFromLanguages, localeFromLanguageTag, normalizeLocale, setLocale } from "@/i18n";
+import { LOCALE_OPTIONS } from "@/lib/app/localeOptions";
+import en from "../locales/en";
+import th from "../locales/th";
+
+function flattenMessages(value: unknown, prefix = "", result = new Map<string, string>()): Map<string, string> {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) {
+    result.set(prefix, String(value));
+    return result;
+  }
+  for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
+    flattenMessages(child, prefix ? `${prefix}.${key}` : key, result);
+  }
+  return result;
+}
+
+function placeholders(message: string): Set<string> {
+  const result = new Set<string>();
+  const pattern = /\{([A-Za-z_][\w.-]*|\d+)\}/g;
+  for (const match of message.matchAll(pattern)) {
+    result.add(match[1]);
+  }
+  return result;
+}
+
+describe("Thai locale", () => {
+  const storage = new Map<string, string>();
+
+  beforeEach(() => {
+    Object.defineProperty(globalThis, "localStorage", {
+      configurable: true,
+      value: {
+        clear: () => storage.clear(),
+        getItem: (key: string) => storage.get(key) ?? null,
+        setItem: (key: string, value: string) => storage.set(key, value),
+        removeItem: (key: string) => storage.delete(key),
+      },
+    });
+  });
+
+  afterEach(async () => {
+    await setLocale("en");
+    storage.clear();
+  });
+
+  it("registers Thai detection and the language menu option", () => {
+    expect(normalizeLocale("th")).toBe("th");
+    expect(localeFromLanguageTag("th_TH")).toBe("th");
+    expect(detectLocaleFromLanguages(["fr-FR", "th-TH"])).toBe("th");
+    expect(detectLocaleFromLanguages(["fr-FR"])).toBe("en");
+    expect(LOCALE_OPTIONS).toContainEqual({ value: "th", flag: "🇹🇭", label: "ภาษาไทย" });
+  });
+
+  it("has the complete canonical leaf-key and interpolation surface", () => {
+    const english = flattenMessages(en);
+    const thai = flattenMessages(th);
+
+    expect([...thai.keys()].sort()).toEqual([...english.keys()].sort());
+    const placeholderMismatches: string[] = [];
+    for (const [key, englishValue] of english) {
+      const thaiValue = thai.get(key);
+      if (thaiValue === undefined || [...placeholders(englishValue)].sort().join("\u0000") !== [...placeholders(thaiValue)].sort().join("\u0000")) {
+        placeholderMismatches.push(key);
+      }
+    }
+    expect(placeholderMismatches).toEqual([]);
+  });
+
+  it("compiles and interpolates Thai through Vue I18n", () => {
+    const i18n = createI18n({
+      legacy: false,
+      locale: "th",
+      fallbackLocale: false,
+      messages: { en, th },
+    });
+
+    const message = i18n.global.t("sidebarMenu.customizeTitle", { scope: "Table" });
+    expect(message).toContain("Table");
+    expect(message).not.toContain("{scope}");
+    expect(message).not.toBe(en.sidebarMenu.customizeTitle);
+  });
+
+  it("renders literal JSON braces with fallback disabled", () => {
+    const cases = [
+      {
+        locale: "en" as const,
+        messages: { en },
+        expected: 'Partial filter must be an object, for example { "status": "active" }.',
+      },
+      {
+        locale: "th" as const,
+        messages: { th },
+        expected: 'Partial Filter ต้องเป็น Object เช่น { "status": "active" }',
+      },
+    ];
+
+    for (const { locale, messages, expected } of cases) {
+      const localI18n = createI18n({ legacy: false, locale, fallbackLocale: false, messages });
+      expect(localI18n.global.t("contextMenu.createMongoIndexFilterInvalid")).toBe(expected);
+    }
+  });
+
+  it("renders Thai literal pipe examples with fallback disabled", () => {
+    const localI18n = createI18n({ legacy: false, locale: "th", fallbackLocale: false, messages: { th } });
+    const placeholder = localI18n.global.t("connection.sqliteExtensionsPlaceholder");
+    const hint = localI18n.global.t("connection.sqliteExtensionsHint");
+    const tableFilterExample = localI18n.global.t("schemaDiff.tableFilterHelpExample");
+
+    expect(placeholder, "th: sqliteExtensionsPlaceholder").toContain("|sqlite3_text_init");
+    expect(hint, "th: sqliteExtensionsHint").toContain("|");
+    expect(tableFilterExample, "th: tableFilterHelpExample").toContain("a|b");
+    expect(`${placeholder}\n${hint}\n${tableFilterExample}`).not.toContain("{'|'}");
+  });
+
+  it("loads Thai lazily and persists an explicit selection", async () => {
+    globalThis.localStorage.clear();
+    await setLocale("th");
+    expect(globalThis.localStorage.getItem("dbx-locale")).toBe("th");
+    expect(i18n.global.locale.value).toBe("th");
+    expect(i18n.global.t("common.save")).toBe("บันทึก");
+  });
+});
