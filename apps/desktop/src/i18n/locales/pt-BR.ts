@@ -3983,7 +3983,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "Deixe em branco para o MongoDB gerar o nome com base nos campos e tipos.",
     createMongoIndexSparse: "Esparso",
     createMongoIndexTtlInvalid: "O tempo de expiração deve ser um número inteiro de segundos.",
-    createMongoIndexFilterInvalid: "O filtro parcial deve ser um objeto, por exemplo {'{'} \"status\": \"active\" {'}'}.",
+    createMongoIndexFilterInvalid: 'O filtro parcial deve ser um objeto, por exemplo { "status": "active" }.',
     createMongoIndexBucketSizeInvalid: "O tamanho do bucket deve ser um número inteiro.",
     manageMongoIndexes: "Gerenciar índices",
     manageMongoIndexesTitle: 'Índices: "{collection}"',

@@ -19,8 +19,6 @@ export default {
   deleteGroup: "Qrupu sil",
   enumValues: "Dəyərlər",
   usedBy: "İstifadə edənlər",
-  synthesized: "synthesized",
-  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "Sxem diaqramını aç",
   saving: "Yadda saxlanılır…",
   saved: "Yadda saxlanıldı",

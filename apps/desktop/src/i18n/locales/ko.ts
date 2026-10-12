@@ -3905,7 +3905,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "비워 두면 MongoDB가 필드와 유형으로 이름을 생성합니다.",
     createMongoIndexSparse: "희소",
     createMongoIndexTtlInvalid: "만료 시간은 초 단위의 정수여야 합니다.",
-    createMongoIndexFilterInvalid: "부분 필터는 객체여야 합니다. 예: {'{'} \"status\": \"active\" {'}'}",
+    createMongoIndexFilterInvalid: '부분 필터는 객체여야 합니다. 예: { "status": "active" }',
     createMongoIndexBucketSizeInvalid: "버킷 크기는 정수여야 합니다.",
     manageMongoIndexes: "인덱스 관리",
     manageMongoIndexesTitle: '인덱스: "{collection}"',

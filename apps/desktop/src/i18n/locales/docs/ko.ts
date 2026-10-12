@@ -19,8 +19,6 @@ export default {
   deleteGroup: "그룹 삭제",
   enumValues: "값",
   usedBy: "사용처",
-  synthesized: "synthesized",
-  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "스키마 다이어그램 열기",
   saving: "저장 중…",
   saved: "저장됨",

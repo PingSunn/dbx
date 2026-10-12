@@ -4001,7 +4001,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "空欄の場合、MongoDB がフィールドとタイプから名前を生成します。",
     createMongoIndexSparse: "スパース",
     createMongoIndexTtlInvalid: "有効期限は秒単位の整数で指定してください。",
-    createMongoIndexFilterInvalid: "部分フィルターはオブジェクトである必要があります。例: {'{'} \"status\": \"active\" {'}'}",
+    createMongoIndexFilterInvalid: '部分フィルターはオブジェクトである必要があります。例: { "status": "active" }',
     createMongoIndexBucketSizeInvalid: "バケットサイズは整数である必要があります。",
     manageMongoIndexes: "インデックスを管理",
     manageMongoIndexesTitle: 'インデックス: "{collection}"',

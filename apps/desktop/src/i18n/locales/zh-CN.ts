@@ -4208,7 +4208,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "留空时由 MongoDB 根据字段和类型自动生成名称。",
     createMongoIndexSparse: "稀疏",
     createMongoIndexTtlInvalid: "过期时间必须是整数秒。",
-    createMongoIndexFilterInvalid: "部分索引过滤器必须是对象，例如 {'{'} \"status\": \"active\" {'}'}。",
+    createMongoIndexFilterInvalid: '部分索引过滤器必须是对象，例如 { "status": "active" }。',
     createMongoIndexBucketSizeInvalid: "存储桶大小必须是整数。",
     manageMongoIndexes: "管理索引",
     manageMongoIndexesTitle: "索引：「{collection}」",

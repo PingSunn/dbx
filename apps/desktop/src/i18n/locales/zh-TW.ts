@@ -3990,7 +3990,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "留空時由 MongoDB 根據欄位和類型自動產生名稱。",
     createMongoIndexSparse: "稀疏",
     createMongoIndexTtlInvalid: "過期時間必須是整數秒。",
-    createMongoIndexFilterInvalid: "部分索引篩選條件必須是物件，例如 {'{'} \"status\": \"active\" {'}'}。",
+    createMongoIndexFilterInvalid: '部分索引篩選條件必須是物件，例如 { "status": "active" }。',
     createMongoIndexBucketSizeInvalid: "儲存桶大小必須是整數。",
     manageMongoIndexes: "管理索引",
     manageMongoIndexesTitle: "索引：「{collection}」",

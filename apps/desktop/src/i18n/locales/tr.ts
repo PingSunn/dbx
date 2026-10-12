@@ -3689,7 +3689,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "Adı alanlardan ve türlerden MongoDB'nin üretmesi için boş bırakın.",
     createMongoIndexSparse: "Seyrek",
     createMongoIndexTtlInvalid: "Sona erme süresi tam sayı saniye olmalıdır.",
-    createMongoIndexFilterInvalid: "Kısmi filtre bir nesne olmalıdır, örneğin {'{'} \"status\": \"active\" {'}'}.",
+    createMongoIndexFilterInvalid: 'Kısmi filtre bir nesne olmalıdır, örneğin { "status": "active" }.',
     createMongoIndexBucketSizeInvalid: "Bucket boyutu tam sayı olmalıdır.",
     manageMongoIndexes: "Dizinleri Yönet",
     manageMongoIndexesTitle: 'Dizinler: "{collection}"',

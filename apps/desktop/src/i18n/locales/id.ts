@@ -4050,7 +4050,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "Biarkan kosong agar MongoDB menghasilkan nama dari kolom dan tipenya.",
     createMongoIndexSparse: "Sparse",
     createMongoIndexTtlInvalid: "Kedaluwarsa setelah harus berupa bilangan bulat detik.",
-    createMongoIndexFilterInvalid: "Filter parsial harus berupa objek, misalnya {'{'} \"status\": \"active\" {'}'}.",
+    createMongoIndexFilterInvalid: 'Filter parsial harus berupa objek, misalnya { "status": "active" }.',
     createMongoIndexBucketSizeInvalid: "Ukuran bucket harus berupa bilangan bulat.",
     manageMongoIndexes: "Kelola Indeks",
     manageMongoIndexesTitle: 'Indeks: "{collection}"',

@@ -19,8 +19,6 @@ export default {
   deleteGroup: "Grubu sil",
   enumValues: "Değerler",
   usedBy: "Kullananlar",
-  synthesized: "synthesized",
-  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "Şema diyagramını aç",
   saving: "Kaydediliyor…",
   saved: "Kaydedildi",

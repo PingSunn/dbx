@@ -3719,7 +3719,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "MongoDB-nin sahə və növlər əsasında ad yaratması üçün boş saxlayın.",
     createMongoIndexSparse: "Seyrək",
     createMongoIndexTtlInvalid: "Etibarlılıq müddəti saniyə ilə tam ədəd olmalıdır.",
-    createMongoIndexFilterInvalid: "Qismən süzgəc obyekt olmalıdır, məsələn, {'{'} \"status\": \"active\" {'}'}.",
+    createMongoIndexFilterInvalid: 'Qismən süzgəc obyekt olmalıdır, məsələn, { "status": "active" }.',
     createMongoIndexBucketSizeInvalid: "Konteyner ölçüsü tam ədəd olmalıdır.",
     manageMongoIndexes: "İndeksləri idarə et",
     manageMongoIndexesTitle: 'İndekslər: "{collection}"',

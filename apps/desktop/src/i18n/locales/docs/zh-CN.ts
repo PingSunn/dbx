@@ -19,8 +19,6 @@ export default {
   deleteGroup: "删除分组",
   enumValues: "值",
   usedBy: "被使用于",
-  synthesized: "synthesized",
-  noColumnUsesEnum: "No column uses this enum.",
   openDiagram: "打开 Schema 图",
   saving: "保存中…",
   saved: "已保存",

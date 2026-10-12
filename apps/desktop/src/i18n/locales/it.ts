@@ -3959,7 +3959,7 @@ export default withEnglishFallback({
     createMongoIndexNameHint: "Lascia vuoto per fare generare il nome a MongoDB dai campi e dai tipi.",
     createMongoIndexSparse: "Sparso",
     createMongoIndexTtlInvalid: "Il tempo di scadenza deve essere un numero intero di secondi.",
-    createMongoIndexFilterInvalid: "Il filtro parziale deve essere un oggetto, ad esempio {'{'} \"status\": \"active\" {'}'}.",
+    createMongoIndexFilterInvalid: 'Il filtro parziale deve essere un oggetto, ad esempio { "status": "active" }.',
     createMongoIndexBucketSizeInvalid: "La dimensione del bucket deve essere un numero intero.",
     manageMongoIndexes: "Gestisci indici",
     manageMongoIndexesTitle: 'Indici: "{collection}"',
