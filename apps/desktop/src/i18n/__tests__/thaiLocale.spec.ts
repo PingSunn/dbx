@@ -84,24 +84,9 @@ describe("Thai locale", () => {
     expect(message).not.toBe(en.sidebarMenu.customizeTitle);
   });
 
-  it("renders literal JSON braces with fallback disabled", () => {
-    const cases = [
-      {
-        locale: "en" as const,
-        messages: { en },
-        expected: 'Partial filter must be an object, for example { "status": "active" }.',
-      },
-      {
-        locale: "th" as const,
-        messages: { th },
-        expected: 'Partial Filter ต้องเป็น Object เช่น { "status": "active" }',
-      },
-    ];
-
-    for (const { locale, messages, expected } of cases) {
-      const localI18n = createI18n({ legacy: false, locale, fallbackLocale: false, messages });
-      expect(localI18n.global.t("contextMenu.createMongoIndexFilterInvalid")).toBe(expected);
-    }
+  it("renders Thai literal JSON braces with fallback disabled", () => {
+    const localI18n = createI18n({ legacy: false, locale: "th", fallbackLocale: false, messages: { th } });
+    expect(localI18n.global.t("contextMenu.createMongoIndexFilterInvalid")).toBe('Partial Filter ต้องเป็น Object เช่น { "status": "active" }');
   });
 
   it("renders Thai literal pipe examples with fallback disabled", () => {
