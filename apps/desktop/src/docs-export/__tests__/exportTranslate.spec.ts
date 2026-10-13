@@ -3,7 +3,7 @@ import { createExportTranslate, EXPORT_LOCALES } from "../exportTranslate";
 
 describe("createExportTranslate", () => {
   it("carries every locale the app ships", () => {
-    expect(Object.keys(EXPORT_LOCALES).sort()).toEqual(["en", "es", "it", "ja", "ko", "pt-BR", "th", "zh-CN", "zh-TW"]);
+    expect(Object.keys(EXPORT_LOCALES).sort()).toEqual(["en", "es", "it", "ja", "ko", "pt-BR", "zh-CN", "zh-TW"]);
   });
 
   it("resolves a nested key under the docs prefix", () => {
@@ -13,11 +13,6 @@ describe("createExportTranslate", () => {
 
   it("substitutes placeholders", () => {
     expect(createExportTranslate("en")("docs.shadowedComment", { comment: "hi" })).toBe("Database comment: hi");
-  });
-
-  it("translates the Thai docs namespace and placeholders", () => {
-    expect(createExportTranslate("th")("docs.noColumnUsesEnum")).toBe("ไม่มีคอลัมน์ที่ใช้ enum นี้");
-    expect(createExportTranslate("th")("docs.shadowedComment", { comment: "หมายเหตุ" })).toBe("คอมเมนต์ฐานข้อมูล: หมายเหตุ");
   });
 
   it("falls back to English for an unknown locale", () => {

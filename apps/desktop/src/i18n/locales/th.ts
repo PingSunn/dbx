@@ -218,7 +218,7 @@ export default {
   customType: {
     kinds: {
       base: "Base",
-      composite: "Composite",
+      composite: "ชนิดข้อมูลแบบ Composite",
       domain: "Domain",
       enum: "Enum",
       range: "Range",
@@ -12260,7 +12260,7 @@ export default {
     contentReplaceDescription: "Preview การแทนที่แบบตรงตัวและแยกตัวพิมพ์เล็กใหญ่ในทุก Data ID ที่ตรงกันก่อน Publish",
     contentReplaceSearch: "ค้นหาค่า",
     contentReplaceValue: "แทนที่ด้วย",
-    contentReplaceScope: "Scope",
+    contentReplaceScope: "ขอบเขต",
     contentReplaceAllGroups: "ทุก Groups",
     contentReplaceAllDataIds: "ทุก Data IDs",
     contentReplaceAllNamespacesWarning: "การดำเนินการนี้จะสแกนและอาจ Publish Config ที่ตรงกันทุกรายการในทุก Namespace ของการเชื่อมต่อนี้ ตรวจสอบแผนทั้งหมดก่อนใช้",
@@ -12285,7 +12285,7 @@ export default {
     },
     replaceHistory: {
       replaceTab: "แทนที่",
-      historyTab: "History",
+      historyTab: "ประวัติ",
       batchCount: "Batch {count} รายการ",
       empty: "ยังไม่มี Batch การแทนที่บันทึกไว้",
       refresh: "รีเฟรช History",

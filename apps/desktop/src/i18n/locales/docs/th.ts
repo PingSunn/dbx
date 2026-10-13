@@ -19,8 +19,6 @@ export default {
   deleteGroup: "ลบกลุ่ม",
   enumValues: "ค่า",
   usedBy: "ใช้โดย",
-  synthesized: "สร้างขึ้นอัตโนมัติ",
-  noColumnUsesEnum: "ไม่มีคอลัมน์ที่ใช้ enum นี้",
   openDiagram: "เปิดแผนผัง Schema",
   saving: "กำลังบันทึก…",
   saved: "บันทึกแล้ว",

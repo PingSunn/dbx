@@ -30,11 +30,10 @@ const locales: Array<[string, Record<string, unknown>]> = [
   ["pt-BR", ptBR],
   ["ru", ru],
   ["tr", tr],
+  ["th", th],
   ["zh-CN", zhCN],
   ["zh-TW", zhTW],
 ];
-
-const thaiOnlyKeys = ["synthesized", "noColumnUsesEnum"];
 
 function leafKeys(value: unknown, prefix = ""): string[] {
   if (value === null || typeof value !== "object" || Array.isArray(value)) {
@@ -45,17 +44,12 @@ function leafKeys(value: unknown, prefix = ""): string[] {
 
 describe("docs i18n namespace parity", () => {
   const expected = leafKeys(en as Record<string, unknown>).sort();
-  const existingLocaleKeys = expected.filter((key) => !thaiOnlyKeys.includes(key));
 
   it("english declares the docs namespace", () => {
     expect(expected.length, "locales/docs/en.ts must declare keys").toBeGreaterThan(0);
   });
 
   it.each(locales)("%s declares exactly the same docs keys as en", (_name, locale) => {
-    expect(leafKeys(locale).sort()).toEqual(existingLocaleKeys);
-  });
-
-  it("Thai declares the complete docs namespace", () => {
-    expect(leafKeys(th as Record<string, unknown>).sort()).toEqual(expected);
+    expect(leafKeys(locale).sort()).toEqual(expected);
   });
 });

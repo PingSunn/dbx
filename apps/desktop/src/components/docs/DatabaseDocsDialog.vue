@@ -16,7 +16,7 @@ import { createAutosave } from "./docsAutosave";
 
 // The languages `to_standalone_html` accepts. Kept in sync manually — this
 // component lives outside `src/docs/` and cannot import from dbx-core.
-const EXPORT_LANGUAGES = ["en", "es", "it", "ja", "ko", "pt-BR", "th", "zh-CN", "zh-TW"];
+const EXPORT_LANGUAGES = ["en", "es", "it", "ja", "ko", "pt-BR", "zh-CN", "zh-TW"];
 
 const props = defineProps<{
   prefillConnectionId?: string;
