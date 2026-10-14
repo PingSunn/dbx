@@ -4252,6 +4252,7 @@ export default withEnglishFallback({
     unpin: "เลิกปักหมุด",
     pinTab: "ปักหมุดแท็บ",
     unpinTab: "เลิกปักหมุดแท็บ",
+    reopenClosedTab: "เปิดแท็บที่ปิดล่าสุด",
     refreshTab: "รีเฟรชข้อมูล",
     renameTab: "เปลี่ยนชื่อแท็บ",
     setTabSuffix: "ตั้งค่า Suffix ของแท็บ",
