@@ -1,3 +1,4 @@
+import { withEnglishFallback } from "./fallback";
 import docs from "./docs/th";
 
 const damengDump = {
@@ -47,7 +48,7 @@ const damengDump = {
   },
 };
 
-export default {
+export default withEnglishFallback({
   sidebarMenu: {
     customize: "ปรับแต่งเมนูแบบจัดกลุ่ม…",
     customizeTitle: "ปรับแต่งเมนู {scope}",
@@ -12849,4 +12850,4 @@ export default {
     retry: "ลองอีกครั้ง",
   },
   docs,
-};
+});
